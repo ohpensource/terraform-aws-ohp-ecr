@@ -3,8 +3,8 @@ variable "name" {
 }
 
 variable "tags" {
-  description = "Map of tags to apply to repository"
-  default     = {}
+  type        = map(any)
+  description = "(Required) Map of tags to apply to repository"
 }
 
 variable "image_tag_mutability" {
