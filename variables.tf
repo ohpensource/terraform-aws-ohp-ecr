@@ -131,3 +131,8 @@ variable "create_ecr_policy" {
   type    = bool
   default = false
 }
+
+variable "create_lifecycle_policy" {
+  type    = bool
+  default = true
+}
