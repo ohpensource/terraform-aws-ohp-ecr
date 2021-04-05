@@ -38,9 +38,12 @@ resource "aws_secretsmanager_secret" "push" {
 
 
 resource "aws_secretsmanager_secret_version" "push" {
-  count         = local.create_push_user
-  secret_id     = aws_secretsmanager_secret.push.*.id[count.index]
-  secret_string = "{\"AccessKey\":\"${aws_iam_access_key.push.*.id[count.index]}\",\"SecretKey\":\"${aws_iam_access_key.push.*.secret[count.index]}\"}"
+  count     = local.create_push_user
+  secret_id = aws_secretsmanager_secret.push.*.id[count.index]
+  secret_string = jsonencode({
+    AccessKey = aws_iam_access_key.push.*.id[count.index],
+    SecretKey = aws_iam_access_key.push.*.secret[count.index]
+  })
 }
 
 
