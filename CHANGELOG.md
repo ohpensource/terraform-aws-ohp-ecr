@@ -1,6 +1,10 @@
 # Changelog
 Note: version releases in the 0.x.y range may introduce breaking changes.
 
+## 0.2.1
+
+- patch: lanz-602  add create lifecycle policy var
+
 ## 0.2.0
 
 - minor: merged in feature/lanz-602 (pull request #2)
