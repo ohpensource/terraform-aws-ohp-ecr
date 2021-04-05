@@ -12,10 +12,11 @@ locals {
   pull_iam_role_name = var.pull_iam_role_name == null ? "${var.name}-ecr-pull-role" : var.pull_iam_role_name
   push_iam_role_name = var.push_iam_role_name == null ? "${var.name}-ecr-push-role" : var.push_iam_role_name
 
-  create_ecr_policy  = var.create_ecr_policy ? 1 : 0
-  default_ecr_policy = var.default_ecr_policy_type == "push" ? local.ecr_push_pull_policy : local.ecr_pull_policy
-  ecr_policy         = var.custom_ecr_policy == null ? local.default_ecr_policy : var.custom_ecr_policy
-  lifecycle_policy   = var.lifecycle_policy != null ? var.lifecycle_policy : local.default_lifecycle_policy
+  create_ecr_policy       = var.create_ecr_policy ? 1 : 0
+  create_lifecycle_policy = var.create_lifecycle_policy ? 1 : 0
+  default_ecr_policy      = var.default_ecr_policy_type == "push" ? local.ecr_push_pull_policy : local.ecr_pull_policy
+  ecr_policy              = var.custom_ecr_policy == null ? local.default_ecr_policy : var.custom_ecr_policy
+  lifecycle_policy        = var.lifecycle_policy != null ? var.lifecycle_policy : local.default_lifecycle_policy
 
   tag_prefix_list       = jsonencode(var.tag_prefix_list)
   ecr_policy_principals = jsonencode(var.ecr_policy_principals)
