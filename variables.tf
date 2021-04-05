@@ -136,3 +136,13 @@ variable "create_lifecycle_policy" {
   type    = bool
   default = true
 }
+
+variable "encryption_type" {
+  description = "(Optional) The encryption type to use for the repository. Valid values are AES256 or KMS. Defaults to AES256"
+  default     = "AES256"
+}
+
+variable "kms_key" {
+  description = "(Optional) The ARN of the KMS key to use when encryption_type is KMS. If not specified, uses the default AWS managed key for ECR"
+  default     = null
+}
