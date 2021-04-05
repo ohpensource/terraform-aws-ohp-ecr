@@ -14,6 +14,7 @@ resource "aws_ecr_repository" "main" {
 }
 
 resource "aws_ecr_lifecycle_policy" "main" {
+  count      = local.create_lifecycle_policy
   repository = aws_ecr_repository.main.name
   policy     = local.lifecycle_policy
 }
