@@ -13,8 +13,8 @@ resource "aws_ecr_repository" "main" {
 
   tags = merge(
     var.tags,
-    map(
-      "Name", var.name
+    tomap(
+      { "Name" = var.name }
     )
   )
 }
