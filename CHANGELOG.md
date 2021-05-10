@@ -1,6 +1,10 @@
 # Changelog
 Note: version releases in the 0.x.y range may introduce breaking changes.
 
+## 0.4.0
+
+- minor: merged in feature/lanz-1024 (pull request #5)
+
 ## 0.3.0
 
 - minor: merged in feature/lanz-602 (pull request #4)

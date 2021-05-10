@@ -17,7 +17,7 @@ provider "aws" {
 }
 
 module "ecr" {
-  source = "git@bitbucket.org:ohpen-dev/terraform-aws-ns-ecs.git?ref=v0.3.0"
+  source = "git@bitbucket.org:ohpen-dev/terraform-aws-ns-ecs.git?ref=v0.4.0"
 
   providers = {
     aws = aws.core_shared
@@ -27,7 +27,7 @@ module "ecr" {
 
 ```
 
-NB: ref=v0.3.0 refers to the version tag of the module. It can be removed to always pull latest (not recommended). Version shown in code above is not necessarily the latest version available.
+NB: ref=v0.4.0 refers to the version tag of the module. It can be removed to always pull latest (not recommended). Version shown in code above is not necessarily the latest version available.
 
 ## Requirements
 
