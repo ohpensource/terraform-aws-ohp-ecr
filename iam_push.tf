@@ -9,8 +9,8 @@ resource "aws_iam_user" "push" {
   name  = local.push_iam_user_name
   tags = merge(
     var.tags,
-    map(
-      "Name", local.push_iam_user_name
+    tomap(
+      { "Name" = local.push_iam_user_name }
     )
   )
 }
@@ -29,8 +29,8 @@ resource "aws_secretsmanager_secret" "push" {
   name  = local.push_iam_user_name
   tags = merge(
     var.tags,
-    map(
-      "Name", local.push_iam_user_name
+    tomap(
+      { "Name" = local.push_iam_user_name }
     )
   )
 }

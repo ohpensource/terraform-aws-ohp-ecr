@@ -9,8 +9,8 @@ resource "aws_iam_user" "pull" {
   name  = local.pull_iam_user_name
   tags = merge(
     var.tags,
-    map(
-      "Name", local.pull_iam_user_name
+    tomap(
+      { "Name" = local.pull_iam_user_name }
     )
   )
 }
@@ -28,8 +28,8 @@ resource "aws_secretsmanager_secret" "pull" {
   name  = local.pull_iam_user_name
   tags = merge(
     var.tags,
-    map(
-      "Name", local.pull_iam_user_name
+    tomap(
+      { "Name" = local.pull_iam_user_name }
     )
   )
 }
