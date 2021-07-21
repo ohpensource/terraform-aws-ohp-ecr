@@ -41,7 +41,7 @@ locals {
         description  = "Keep last ${var.keep_last_x_tagged_images} images",
         selection = {
           tagStatus     = "tagged"
-          countType     = "sinceImagePushed"
+          countType     = "imageCountMoreThan"
           tagPrefixList = local.tag_prefix_list
           countNumber   = var.keep_last_x_tagged_images
         }
