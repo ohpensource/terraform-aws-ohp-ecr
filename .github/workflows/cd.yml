@@ -9,10 +9,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Terraform Install
+        uses: hashicorp/setup-terraform@v1
       - name: semver & changelog
         run: |
           date > generated.txt
           git config user.name github-svc
           git config user.email github-svc@ohpen.com
-          ls -l
           node ./scripts/generate-version-and-release-notes.js
