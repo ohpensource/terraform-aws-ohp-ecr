@@ -3,9 +3,6 @@ on:
   pull_request:
     branches: ["main"]
 
-env:
-  TFM_VER: 1.0.6
-
 jobs:
   tfm-validate:
     runs-on: ubuntu-latest
@@ -15,12 +12,20 @@ jobs:
           fetch-depth: 0
       - name: Terraform Install
         uses: hashicorp/setup-terraform@v1
-        with:
-          terraform_version: ${{ env.TFM_VER }}
       - name: tfm-validate
         run: |
           chmod +x -R ./scripts
           ./scripts/tfm_init.sh
+
+      - name: Lint Terraform
+        run: terraform fmt -write=false -list=true -recursive -check
+
+      - name: TFLint Install
+        uses: terraform-linters/setup-tflint@v1
+      - name: Run tflint
+        run: |
+          tflint --init
+          tflint -f compact
   tfm-docs:
     runs-on: ubuntu-latest
     steps:
