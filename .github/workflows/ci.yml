@@ -1,0 +1,37 @@
+name: continuous-integration
+on:
+  pull_request:
+    branches: ["main"]
+
+env:
+  TFM_VER: 1.0.6
+
+jobs:
+  tfm-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Terraform Install
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: ${{ env.TFM_VER }}
+      - name: tfm-validate
+        run: |
+          chmod +x -R ./scripts
+          ./scripts/tfm_init.sh
+  tfm-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - name: Render terraform docs inside the USAGE.md and push changes back to PR branch
+        uses: terraform-docs/gh-actions@v0.10.0
+        with:
+          working-dir: .
+          output-file: README.md
+          output-method: inject
+          git-push: "true"
