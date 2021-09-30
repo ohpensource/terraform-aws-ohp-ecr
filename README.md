@@ -102,3 +102,4 @@ No modules.
 | <a name="output_id"></a> [id](#output\_id) | The registry ID where the repository was created |
 | <a name="output_url"></a> [url](#output\_url) | The URL of the repository |
 
+<!--- END_TF_DOCS --->
