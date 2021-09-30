@@ -1,3 +1,9 @@
+# :confetti_ball: vNaN.1.1.0 (2021-09-30T07:31:23.257Z)
+- - -
+## :bug: Fixes
+* version prefix
+- - -
+- - -
 # :confetti_ball: vNaN.1.0.6 (2021-09-30T07:26:47.164Z)
 - - -
 ## :newspaper: Others
