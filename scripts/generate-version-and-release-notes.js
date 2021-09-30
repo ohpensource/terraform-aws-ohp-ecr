@@ -34,7 +34,7 @@ let previousVersion = getPreviousVersionAsText(versionFileContent);
 logger.logKeyValuePair("previous-version", previousVersion);
 
 logger.logAction("GETTING NEW VERSION");
-let newVersion = getUpdatedVersion(previousVersion, changes);
+let newVersion = getUpdatedVersion(previousVersion, changes, versionPrefix);
 logger.logKeyValuePair("new-version", newVersion);
 
 logger.logAction("UPDATING VERSION FILE");
@@ -47,7 +47,7 @@ logger.logAction("UPDATING CHANGELOG FILE");
 updateChangelogFile(newVersion, changes);
 
 logger.logAction("COMMITTING AND TAGGING");
-commitAndTag(newVersion);
+commitAndTag(newVersion, versionPrefix);
 
 // --------------------- //
 // ----- FUNCTIONS ----- //
@@ -61,7 +61,7 @@ function updateChangelogWith(changelog, title, changeContents) {
   }
   return changelog;
 }
-function getUpdatedVersion(version, changes) {
+function getUpdatedVersion(version, changes, prefix) {
   let versionFileContent = version.split(".");
   let major = parseInt(versionFileContent[0], 10);
   let minor = parseInt(versionFileContent[1], 10);
@@ -97,7 +97,7 @@ function getUpdatedVersion(version, changes) {
     newSecondary = secondary + 1;
   }
 
-  return `${versionPrefix}${newMajor}.${newMinor}.${newPatch}.${newSecondary}`;
+  return `${prefix}${newMajor}.${newMinor}.${newPatch}.${newSecondary}`;
 }
 function getChange(line) {
   if (line.startsWith(featPreffix)) {
@@ -173,14 +173,14 @@ function updateChangelogFile(newVersion, changes) {
   }
   fs.writeFileSync(changelogFile, `${changelog}${previousChangelog}`);
 }
-function commitAndTag(newVersionAsText) {
+function commitAndTag(newVersionAsText, prefix) {
   child.execSync(`git add ${versionFile}`);
   child.execSync(`git add ${changelogFile}`);
   child.execSync(
-    `git commit -m "[SKIP CI] Bump to version ${versionPrefix}${newVersionAsText}"`
+    `git commit -m "[SKIP CI] Bump to version ${prefix}${newVersionAsText}"`
   );
   child.execSync(
-    `git tag -a -m "Tag for version ${versionPrefix}${newVersionAsText}" "v${newVersionAsText}"`
+    `git tag -a -m "Tag for version ${prefix}${newVersionAsText}" "v${newVersionAsText}"`
   );
   child.execSync(`git push --follow-tags`);
 }
