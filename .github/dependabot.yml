@@ -6,10 +6,12 @@ updates:
     schedule:
       interval: "daily"
     assignees:
-      - "@ohpensource/PlatformServices"
+      - "@ohpensource/platform"
+      - "@ohpen/admins"
   - package-ecosystem: "terraform"
     directory: "/"
     schedule:
       interval: "daily"
     assignees:
-      - "@ohpensource/PlatformServices"
+      - "@ohpensource/platform"
+      - "@ohpen/admins"
