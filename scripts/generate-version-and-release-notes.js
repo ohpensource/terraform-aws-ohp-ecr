@@ -9,6 +9,7 @@ const fixPreffix = "fix:";
 const breakPreffix = "break:";
 const versionFile = "version.json";
 const changelogFile = "CHANGELOG.md";
+const versionPrefix = "v";
 
 // ------------------ //
 // ----- SCRIPT ----- //
@@ -96,7 +97,7 @@ function getUpdatedVersion(version, changes) {
     newSecondary = secondary + 1;
   }
 
-  return `${newMajor}.${newMinor}.${newPatch}.${newSecondary}`;
+  return `${versionPrefix}${newMajor}.${newMinor}.${newPatch}.${newSecondary}`;
 }
 function getChange(line) {
   if (line.startsWith(featPreffix)) {
@@ -126,7 +127,7 @@ function getPreviousVersionAsText(versionFileContent) {
   if (versionFileContent.version) {
     previousVersion = versionFileContent.version;
   } else {
-    previousVersion = "0.0.0.0";
+    previousVersion = "v0.0.0.0";
   }
   return previousVersion;
 }
@@ -176,10 +177,10 @@ function commitAndTag(newVersionAsText) {
   child.execSync(`git add ${versionFile}`);
   child.execSync(`git add ${changelogFile}`);
   child.execSync(
-    `git commit -m "[SKIP CI] Bump to version ${newVersionAsText}"`
+    `git commit -m "[SKIP CI] Bump to version ${versionPrefix}${newVersionAsText}"`
   );
   child.execSync(
-    `git tag -a -m "Tag for version ${newVersionAsText}" ${newVersionAsText}`
+    `git tag -a -m "Tag for version ${versionPrefix}${newVersionAsText}" "v${newVersionAsText}"`
   );
   child.execSync(`git push --follow-tags`);
 }
