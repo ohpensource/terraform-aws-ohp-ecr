@@ -1,3 +1,9 @@
+# :confetti_ball: vNaN.1.0.6 (2021-09-30T07:26:47.164Z)
+- - -
+## :newspaper: Others
+* Merge branch 'fix/tfm-docs' into main
+- - -
+- - -
 # :confetti_ball: 0.1.0.5 (2021-09-29T16:51:24.587Z)
 - - -
 ## :newspaper: Others
