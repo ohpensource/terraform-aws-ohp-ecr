@@ -5,6 +5,7 @@ variable "name" {
 variable "tags" {
   type        = map(any)
   description = "(Required) Map of tags to apply to repository"
+  default     = {}
 }
 
 variable "image_tag_mutability" {

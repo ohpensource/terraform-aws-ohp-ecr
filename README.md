@@ -13,24 +13,24 @@
 ## Usage
 
 <!--- BEGIN_TF_DOCS --->
-## Requirements
+### Requirements
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.0 |
 
-## Providers
+### Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.0 |
 
-## Modules
+### Modules
 
 No modules.
 
-## Resources
+### Resources
 
 | Name | Type |
 |------|------|
@@ -59,7 +59,7 @@ No modules.
 | [aws_iam_policy_document.ecr_pull_user_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.ecr_push_user_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 
-## Inputs
+### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -92,9 +92,9 @@ No modules.
 | <a name="input_push_iam_user_name"></a> [push\_iam\_user\_name](#input\_push\_iam\_user\_name) | ECR Push User name - leave blank for default name based on var.name | `any` | `null` | no |
 | <a name="input_scan_image_on_push"></a> [scan\_image\_on\_push](#input\_scan\_image\_on\_push) | Scan image for vulnerabilities on push | `bool` | `true` | no |
 | <a name="input_tag_prefix_list"></a> [tag\_prefix\_list](#input\_tag\_prefix\_list) | List of tag prefixes | `list` | <pre>[<br>  "v"<br>]</pre> | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | (Required) Map of tags to apply to repository | `map(any)` | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | (Required) Map of tags to apply to repository | `map(any)` | `{}` | no |
 
-## Outputs
+### Outputs
 
 | Name | Description |
 |------|-------------|
@@ -102,3 +102,4 @@ No modules.
 | <a name="output_id"></a> [id](#output\_id) | The registry ID where the repository was created |
 | <a name="output_url"></a> [url](#output\_url) | The URL of the repository |
 
+<!--- END_TF_DOCS --->
