@@ -34,7 +34,7 @@ let previousVersion = getPreviousVersionAsText(versionFileContent);
 logger.logKeyValuePair("previous-version", previousVersion);
 
 logger.logAction("GETTING NEW VERSION");
-let newVersion = getUpdatedVersion(previousVersion, changes, versionPrefix);
+let newVersion = getUpdatedVersion(previousVersion, changes);
 logger.logKeyValuePair("new-version", newVersion);
 
 logger.logAction("UPDATING VERSION FILE");
@@ -61,7 +61,7 @@ function updateChangelogWith(changelog, title, changeContents) {
   }
   return changelog;
 }
-function getUpdatedVersion(version, changes, prefix) {
+function getUpdatedVersion(version, changes) {
   let versionFileContent = version.split(".");
   let major = parseInt(versionFileContent[0], 10);
   let minor = parseInt(versionFileContent[1], 10);
@@ -97,7 +97,7 @@ function getUpdatedVersion(version, changes, prefix) {
     newSecondary = secondary + 1;
   }
 
-  return `${prefix}${newMajor}.${newMinor}.${newPatch}.${newSecondary}`;
+  return `${newMajor}.${newMinor}.${newPatch}.${newSecondary}`;
 }
 function getChange(line) {
   if (line.startsWith(featPreffix)) {
