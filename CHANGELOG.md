@@ -1,3 +1,9 @@
+# :confetti_ball: 0.1.4.2 (2021-10-01T07:02:08.767Z)
+- - -
+## :newspaper: Others
+* [SKIP CI] Bump to version v0.1.4.1
+- - -
+- - -
 # :confetti_ball: 0.1.4.1 (2021-09-30T17:46:10.740Z)
 - - -
 ## :newspaper: Others
