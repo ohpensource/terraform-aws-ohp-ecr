@@ -1,3 +1,9 @@
+# :confetti_ball: 1.0.0 (2021-10-01T07:12:10.252Z)
+- - -
+## :newspaper: Others
+* Merge pull request #6 from ohpensource/feature/semver
+- - -
+- - -
 # :confetti_ball: 0.1.4.2 (2021-10-01T07:02:08.767Z)
 - - -
 ## :newspaper: Others
