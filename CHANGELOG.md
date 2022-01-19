@@ -1,3 +1,11 @@
+# :confetti_ball: 0.0.1 (2022-01-19T13:59:40.089Z)
+- - -
+## :bug: Fixes
+* GMP-381 bump
+## :newspaper: Others
+* terraform-docs: automated action
+- - -
+- - -
 # :confetti_ball: 0.0.0 (2022-01-19T13:53:17.652Z)
 - - -
 ## :newspaper: Others
