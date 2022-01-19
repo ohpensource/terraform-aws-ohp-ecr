@@ -1,3 +1,9 @@
+# :confetti_ball: 0.0.0 (2022-01-19T13:53:17.652Z)
+- - -
+## :newspaper: Others
+* Merge branch 'fix/versioining' into main
+- - -
+- - -
 # :confetti_ball: 1.0.0 (2021-10-01T07:12:10.252Z)
 - - -
 ## :newspaper: Others
