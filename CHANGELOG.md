@@ -102,3 +102,34 @@
 * migrate to github
 - - -
 - - -
+
+# Changelog from bitbucket
+Note: version releases in the 0.x.y range may introduce breaking changes.
+
+## 0.5.0
+
+- minor: merged in feature/nws-171 (pull request #6)
+
+## 0.4.0
+
+- minor: merged in feature/lanz-1024 (pull request #5)
+
+## 0.3.0
+
+- minor: merged in feature/lanz-602 (pull request #4)
+
+## 0.2.1
+
+- patch: lanz-602  add create lifecycle policy var
+
+## 0.2.0
+
+- minor: merged in feature/lanz-602 (pull request #2)
+
+## 0.1.1
+
+- patch: lanz-602  make tags required
+
+## 0.1.0
+
+- minor: merge branch 'feature/lanz-602'
