@@ -1,3 +1,9 @@
+# :confetti_ball: 0.5.1 (2022-03-13T13:07:13.777Z)
+- - -
+## :newspaper: Others
+* set version
+- - -
+- - -
 # :confetti_ball: 0.0.2 (2022-02-17T11:28:49.178Z)
 - - -
 ## :newspaper: Others
